@@ -3,7 +3,7 @@
         "content": "take a pause",
         "category": "HEALTH",
         "xp": 50,
-        "done": false,
+        "done": true,
         "id": "82e970b5-563c-41fe-a80c-3f9ddf407732"
     },
     {
@@ -12,5 +12,12 @@
         "xp": 200,
         "done": false,
         "id": "aec125d2-5712-458a-bf4c-d5a0cf94990f"
+    },
+    {
+        "content": "publish my smarttodoapp to discord",
+        "category": "PROBLEM_SOLVING",
+        "xp": 2,
+        "done": false,
+        "id": "d10d54bc-3467-4584-96af-d8bb40b3d117"
     }
 ]
