@@ -5,7 +5,7 @@ class EventListener:
     @staticmethod
     def Listen(input_str: str):
         try:
-            print("cool")
+            # print("****Listener working...")
             action = None
             argument = None
             
@@ -38,6 +38,7 @@ class EventListener:
                 getattr(CommandsFunction, action)()
 
         except Exception as e:
+            print("In Event Listener")
             print(e)
 
 # Example usage:

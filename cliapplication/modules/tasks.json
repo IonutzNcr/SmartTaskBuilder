@@ -1,12 +1,16 @@
 [
     {
-        "content": "lol",
+        "content": "take a pause",
         "category": "HEALTH",
-        "xp": 2
+        "xp": 50,
+        "done": false,
+        "id": "82e970b5-563c-41fe-a80c-3f9ddf407732"
     },
     {
-        "content": "connard",
-        "category": "HEALTH",
-        "xp": 10
+        "content": "make a java application",
+        "category": "PROBLEM_SOLVING",
+        "xp": 200,
+        "done": false,
+        "id": "aec125d2-5712-458a-bf4c-d5a0cf94990f"
     }
 ]

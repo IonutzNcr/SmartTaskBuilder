@@ -14,7 +14,7 @@ class Config:
 
 
 class Assisstant:
-    
+
     Config.initialize()
 
     client = OpenAI(api_key = os.environ["OPENAI_API_KEY"])
@@ -31,7 +31,7 @@ class Assisstant:
 
 
 
-print (Assisstant.assignCategory("SE NOURRIR"))
+# print (Assisstant.assignCategory("SE NOURRIR"))
 
 
 
