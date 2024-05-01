@@ -1,23 +1,43 @@
-[
-    {
-        "content": "take a pause",
-        "category": "HEALTH",
-        "xp": 50,
-        "done": true,
-        "id": "82e970b5-563c-41fe-a80c-3f9ddf407732"
+{
+    "default": {
+        "hobby": [],
+        "work": [],
+        "other": [
+            {
+                "done": true,
+                "id": "713c7193-0345-4286-a30a-7baf64374eaf",
+                "content": "faire les courses",
+                "category": "other"
+            },
+            {
+                "done": false,
+                "id": "d9391ac0-5cc3-4d5e-9be8-20778bf4df36",
+                "content": "mettre le linge \u00e0 s\u00e9cher",
+                "category": "other"
+            },
+            {
+                "done": false,
+                "id": "96d0a3fa-800a-4631-b560-e791e6d094ad",
+                "content": "faire les courses",
+                "category": "other"
+            },
+            {
+                "done": false,
+                "id": "b3f3dd30-aed3-4831-ba04-d1beac21b95e",
+                "content": "mettre le linge \u00e0 s\u00e9cher",
+                "category": "other"
+            }
+        ]
     },
-    {
-        "content": "make a java application",
-        "category": "PROBLEM_SOLVING",
-        "xp": 200,
-        "done": false,
-        "id": "aec125d2-5712-458a-bf4c-d5a0cf94990f"
+    "ionut": {
+        "bien-etre": [
+            {
+                "done": false,
+                "id": "20c13848-485c-43ac-9239-907813309676",
+                "content": "Pratiquer la m\u00e9ditation pour se recentrer et se relaxer",
+                "category": "bien-etre"
+            }
+        ]
     },
-    {
-        "content": "publish my smarttodoapp to discord",
-        "category": "PROBLEM_SOLVING",
-        "xp": 2,
-        "done": false,
-        "id": "d10d54bc-3467-4584-96af-d8bb40b3d117"
-    }
-]
+    "alex": {}
+}

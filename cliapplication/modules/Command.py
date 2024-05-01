@@ -1,7 +1,9 @@
-from .Storage import Storage
-from .ColorCli import Colors
-from .OpenAi import Assisstant
-from .Task import Task
+from ColorCli import Colors
+from OpenAi import Assisstant
+from Profile import ProfileManager
+from Searcher import Searcher
+from Displayer import Displayer
+from Filter import Filter
 import json
 import uuid
 
@@ -11,75 +13,70 @@ class CommandsFunction:
     """
     
     def help():
-        print("View or -V: too see all the todos\nAdd or -A to see add a todo\nCheck or -c to make a task done")
+        print("View: too see all the todos\nAdd to add a todo\nCheck make a task done")
     
     def add(input_us:str):
         # get the category from openai; add with the storage, persist
         task_by_openai = Assisstant.assignCategory(input_us)
+        task_by_openai["id"] = str(uuid.uuid4())
+        task_by_openai["done"] = False
         
-        
-        Storage.addTask(Task(content=input_us, category = task_by_openai['category'], xp=task_by_openai['experience'], id=str(uuid.uuid4())))
-        Storage.persistTasks()
+        ProfileManager.add_task(task_by_openai)
         # print(task_by_openai)
-        print(" added" + input_us)
+        print(" added " + input_us)
 
 
-    #TODO working on the display of the todo table in the cli
+    #TODO Refactoring the view function
     def view():
-        tasks =  Storage.tasks
-
-        # print("done | id | content | category | exp \n" + ("-" * 60))
-        str_notstr = ""
-        dic_strsize = {"done":5,"id":0,"content":0, "category":0, "xp":0}
-        for task in tasks:
-            for size in dic_strsize:
-                if size != "done":
-                    if len(str(getattr(task,size))) > dic_strsize[size]:
-                        dic_strsize[size] = len(str(getattr(task,size))) 
-                
-        str_notstr =  "done" + (" "*(dic_strsize["done"] - len("done"))) + " | " + "id" + (" "*(dic_strsize["id"] - len("id"))) + " | " + "content" + (" "*(dic_strsize["content"] - len("content"))) + " | " + "category" + (" "*(dic_strsize["category"] - len("category")))+ " | " + "xp" + (" "*(dic_strsize["xp"] - len("xp")))
-        print(Colors.BOLD + str_notstr + Colors.ENDC)
-        print("-"*(dic_strsize["done"] + dic_strsize["id"] + dic_strsize["content"] + dic_strsize["category"]+ dic_strsize["xp"] + (4*3)))
-        for task in tasks:
-            if task.done:
-                print(Colors.OKGREEN + "[ x ]"+ (" "*(dic_strsize["done"] - len("[ x ]"))) +  " | " + str(task.id) + (" "*(dic_strsize["id"] - len(str(task.id))))  + " | " + task.content + (" "*(dic_strsize["content"] - len(task.content)))  + " | " + task.category + (" "*(dic_strsize["category"] - len(task.category)))  + " | " + str(task.xp) + (" "*(dic_strsize["xp"] - len(str(task.xp))))  + Colors.ENDC)
-                print("-"*(dic_strsize["done"] + dic_strsize["id"] + dic_strsize["content"] + dic_strsize["category"]+ dic_strsize["xp"] + (4*3)))
-            else:
-                print("[   ]"+ (" "*(dic_strsize["done"] - len("[   ]"))) +  " | " + str(task.id) + (" "*(dic_strsize["id"] - len(str(task.id))))  + " | " + task.content + (" "*(dic_strsize["content"] - len(task.content)))  + " | " + task.category + (" "*(dic_strsize["category"] - len(task.category)))  + " | " + str(task.xp) + (" "*(dic_strsize["xp"] - len(str(task.xp)))))
-                print("-"*(dic_strsize["done"] + dic_strsize["id"] + dic_strsize["content"] + dic_strsize["category"]+ dic_strsize["xp"] + (4*3)))
-
-    def check(id):
+        profile_dic = ProfileManager.profile_dict[ProfileManager.current_profile]
+        task_properties = ProfileManager.task_properties
+        Displayer.displayTable(profile_dic, task_properties)
+    def check(id:str):
+        # print(Colors.OKBLUE +"starting checking ..." + Colors.ENDC)
         found_task = False
-        for task in Storage.tasks:
-            if task.id == task.id:
-                task.done = True
-                Storage.persistTasks()
-                found_task = True
-                break
+        for category in ProfileManager.profile_dict[ProfileManager.current_profile]:
+            for task in ProfileManager.profile_dict[ProfileManager.current_profile][category]:
+                if task['id'] == id:
+                    task['done'] = True
+                    ProfileManager.persist_tasks()
+                    # print(Colors.OKGREEN + "Task has been checked successfully." + Colors.ENDC)
+                    # print(ProfileManager.profile_dict[ProfileManager.current_profile])
+                    found_task = True
+                    break
         
         if found_task == False:
             raise Exception("not id found")
     
     def delete(id):
-        # Find the task by id
-        task_to_delete = None
-        for task in Storage.tasks:
-            if task.id == task.id:
-                task_to_delete = task
-                break
-
-        if task_to_delete is not None:
-            resp = input("Are you sure? (y/n): ")
-            if resp not in ["y", "n"]:
-                raise Exception("Not a valid command")
-            elif resp == "y":
-                Storage.tasks.remove(task_to_delete)
-                Storage.persistTasks()
-                print(Colors.WARNING + "Task has been deleted successfully." + Colors.ENDC)
-            else:
-                print("Nothing has changed.")
-        else:
-            raise Exception("No task found with ID: {}".format(task.id))
+            found_task = False
+            for category in ProfileManager.profile_dict[ProfileManager.current_profile]:
+                for task in ProfileManager.profile_dict[ProfileManager.current_profile][category]:
+                    if task['id'] == id:
+                        ProfileManager.delete_task(id)
+                        found_task = True
+                        break
             
-        
+            if found_task == False:
+                raise Exception("not id found")        
+    def use(name:str):
+        ProfileManager.change_profile(name)
+        print("profile changed to " + name)
     
+    def category(name:str):
+        ProfileManager.add_category(name)
+        print("category added")
+
+    def all_categories():
+        print(ProfileManager.profile_dict[ProfileManager.current_profile].keys())
+
+    def delete_category(name:str):
+        ProfileManager.delete_category(name)
+        print("category deleted")
+
+    def search(input:str):
+        Searcher.search(input)
+
+    def filter(input:str):
+        filtered_dict = Filter.filter(ProfileManager.profile_dict[ProfileManager.current_profile],input)
+        # print(filtered_dict)
+        Displayer.displayTable(filtered_dict, ProfileManager.task_properties)

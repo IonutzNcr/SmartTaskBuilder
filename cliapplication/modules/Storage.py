@@ -1,49 +1,42 @@
 import json
 import os
-from .Task import Task
+from ColorCli import Colors as Co
 
 
-class Storage: 
-    tasks = []
-    
-    def addTask(task):
-        Storage.tasks.append(task)
-    
-    def deleteTask(task):
-        Storage.tasks.remove(task)
 
-    def persistTasks() -> None:
-        jsonTask = json.dumps([task.__dict__ for task in Storage.tasks], default=lambda x: x.__dict__, indent=4)
-        with open('./modules/tasks.json', 'w') as file:
+class Storage:
+    @classmethod
+    def persist_tasks(cls) -> None:
+        jsonTask = json.dumps(cls.profile_dict, indent=4)
+         # task.json if tested from the module or ./modules/task.json if called from an external file
+        with open('tasks.json', 'w') as file:
             file.write(jsonTask)
-    
-    def fillStorage():
+    @classmethod    
+    def fillStorage(cls) -> bool:
         """
             Need to be called once to populate the tasks with the data we already persisted
         """
-        # print("doooooo")
-        filepath = "./modules/tasks.json"
-        # print("Current Working Directory: ", os.getcwd())
+        # print("wtf")
+        # print(cls)
+        # task.json if tested from the module or ./modules/task.json if called from an external file
+        filepath = "tasks.json"
+        
         print(os.path.isfile(filepath))
         if os.path.isfile(filepath):
             # print("is not working")
-            with open('./modules/tasks.json', 'r') as file:
+            with open('tasks.json', 'r') as file:
                 # Read the entire contents of the file
                 file_contents = file.read()
                 tasks_data= json.loads(file_contents)
              # Convert each task dictionary back into a Task object
-            for task_data in tasks_data:
-                task = Task(task_data['content'], task_data['category'], task_data['xp'], task_data['id'], task_data['done'])
-                Storage.tasks.append(task)
-
+            cls.profile_dict = tasks_data
+            print(Co.WARNING +" ***storage filled*** "+ Co.ENDC)
+            return True
         else:
-            # print("im here wtf")
-            Storage.tasks = []
+            print("im here wtf")
+            return False
         
  
-
-
-
 # Storage.persistTasks()
 # Storage.fillStorage()
 # print(Storage.tasks)

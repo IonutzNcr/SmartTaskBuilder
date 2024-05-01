@@ -1,4 +1,5 @@
-from .Command import CommandsFunction
+from Command import CommandsFunction
+from Command import ProfileManager
 import re
 
 class EventListener:
@@ -33,13 +34,28 @@ class EventListener:
             
             # Call the appropriate function from CommandsFunction class
             if argument is not None:
-                getattr(CommandsFunction, action)(argument)
+                try:
+                    getattr(CommandsFunction, action)(argument)
+                except Exception as e:
+                    print(e)
+                    print("In Argument condition Event Listener")
             else:
-                getattr(CommandsFunction, action)()
-
+                try:  
+                    getattr(CommandsFunction, action)()
+                except Exception as e:
+                    print(e)
+                    print(action)
+                    print("In No Argument condition Event Listener")
         except Exception as e:
             print("In Event Listener")
             print(e)
+            print("end")
 
 # Example usage:
-# EventListener.Listen('add ')
+# ProfileManager.init_profile()
+# # EventListener.Listen("add 'faire les courses'")
+# # EventListener.Listen("add 'mettre le linge à sécher'")
+# EventListener.Listen('view')
+# EventListener.Listen('check "713c7193-0345-4286-a30a-7baf64374eaf"')
+# EventListener.Listen('delete "96d0a3fa-800a-4631-b560-e791e6d094ad"')
+# EventListener.Listen('view')

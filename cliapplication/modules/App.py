@@ -2,12 +2,12 @@
 Lunch the program
 """
 
-from modules.EventListener import EventListener
-from modules.Storage import Storage
+from EventListener import EventListener
+from Profile import ProfileManager
 
 class Runner :
     def run():
-        Storage.fillStorage()
+        ProfileManager.init_profile()
         print("Welcome to my wonderfull cli app! Tape help to get some help :)")
         isRunning = True
        
@@ -20,4 +20,4 @@ class Runner :
                 break 
             EventListener.Listen(input_us)
        
-# App.run()
+Runner.run()
