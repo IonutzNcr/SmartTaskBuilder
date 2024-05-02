@@ -39,10 +39,14 @@ class TaskManager(TaskManagerInterface):
 
     @classmethod
     def add_task(cls, task: dict) -> None:
-        cls.profile_dict[cls.current_profile][task["category"]].append(task)
-        cls.persist_tasks()
-        # print(cls.profile_dict)
-        print("add Task")
+        try:
+            cls.profile_dict[cls.current_profile][task["category"]].append(task)
+            cls.persist_tasks()
+            # print(cls.profile_dict)
+            print("add Task")
+        except:
+            raise Exception("Error in add_task")
+            
     @classmethod
     def check_task(cls, id: str) -> None:
         for category in cls.profile_dict[cls.current_profile]:

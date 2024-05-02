@@ -4,6 +4,7 @@ from Profile import ProfileManager
 from Searcher import Searcher
 from Displayer import Displayer
 from Filter import Filter
+from Sorter import SorterManager
 import json
 import uuid
 
@@ -62,6 +63,8 @@ class CommandsFunction:
         ProfileManager.change_profile(name)
         print("profile changed to " + name)
     
+    #TODO: ADD DYNAMIC ATTRIBUTES
+    
     def category(name:str):
         ProfileManager.add_category(name)
         print("category added")
@@ -80,3 +83,43 @@ class CommandsFunction:
         filtered_dict = Filter.filter(ProfileManager.profile_dict[ProfileManager.current_profile],input)
         # print(filtered_dict)
         Displayer.displayTable(filtered_dict, ProfileManager.task_properties)
+        
+    def sort(input:str):
+        print("sorting by " + input)
+        try:
+            dt = SorterManager.convert_to_array(ProfileManager.profile_dict[ProfileManager.current_profile])
+            print(dt)
+            data = SorterManager.sorting(dt, input)
+            print(data)
+            Displayer.displayTableWithSorting(data)
+        except ValueError as e:
+            print(e)
+            
+    def generate(_input:str):
+        """
+        Generate tasks with the input
+        """
+        tasks = Assisstant.assign_tasks(_input)
+        for category in tasks:
+            for task in tasks[category]:
+                task["id"] = str(uuid.uuid4())
+                task["done"] = False
+        Displayer.displayTable(tasks, ProfileManager.task_properties)
+        
+        try:
+            resp = input("Do you want to save the tasks? y/n")
+            if resp == "y":
+                for category in tasks:
+                    print ("cattttttegory" + category)
+                    if ProfileManager.profile_dict[ProfileManager.current_profile].get(category) is None:
+                        ProfileManager.profile_dict[ProfileManager.current_profile][category] = []
+                    for task in tasks[category]:
+                        ProfileManager.add_task(task)
+                print("Tasks added")
+            else:
+                print("Tasks not saved")
+        except:
+            print("Error in the tasks ****")
+        
+       
+       

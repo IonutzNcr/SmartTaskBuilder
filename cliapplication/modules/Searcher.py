@@ -23,13 +23,10 @@ class Searcher(SearcherManagerInterface, ProfileManager):
                         continue
                     if input in task[attr]:
                         print("input found"+ input)
-                        new_input = re.sub(input, Colors.BG_YELLOW + input + Colors.ENDC, task[attr])
-                        print("new input: " + new_input)
-                        task[attr] = new_input
-                        print("search_dict", search_dict.get(category))
+                        # print("search_dict", search_dict.get(category))
                         if search_dict.get(category) is None:
                             search_dict[category] = []
                         if task not in search_dict[category]:
                             search_dict[category].append(task)
-        Displayer.displayTable(search_dict, cls.task_properties)
+        Displayer.displayTable(search_dict, cls.task_properties, searchMode = True, searchKey = input)
         print("searched")

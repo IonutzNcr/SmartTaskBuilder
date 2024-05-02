@@ -1,6 +1,19 @@
 {
     "default": {
-        "hobby": [],
+        "hobby": [
+            {
+                "done": false,
+                "id": "e89eb0f7-2a78-40c7-a78f-ef2f334bec64",
+                "content": "Jouer \u00e0 Outer Wild",
+                "category": "hobby"
+            },
+            {
+                "done": false,
+                "id": "5f50902e-08e2-4415-8ecf-5b53f092ae62",
+                "content": "Jouer \u00e0 Outer Wild",
+                "category": "hobby"
+            }
+        ],
         "work": [],
         "other": [
             {
@@ -39,5 +52,73 @@
             }
         ]
     },
-    "alex": {}
+    "alex": {},
+    "today": {
+        "work": [
+            {
+                "done": true,
+                "id": "8d672fce-4adf-4b05-ba6a-cac61ea1e806",
+                "content": "Ajouter la g\u00e9n\u00e9ration de contenu par IA",
+                "category": "work"
+            },
+            {
+                "done": true,
+                "id": "020fc2bd-1bdd-44ae-b1c1-2722c79a4cf3",
+                "content": "Trouver des solutions pour r\u00e9gler le probl\u00e8me d'ANSI sur la recherche.",
+                "category": "work"
+            },
+            {
+                "done": false,
+                "id": "8a35106d-6f14-42ac-9fc6-8ae4e5b0b55d",
+                "content": "Ajout des attribut dynamique pour les taches",
+                "category": "work"
+            },
+            {
+                "done": false,
+                "id": "05c334f0-809f-4bd9-9384-f10a88313bef",
+                "content": "Tourner la vid\u00e9o de mon smarttaskmanager cli application",
+                "category": "work"
+            },
+            {
+                "done": false,
+                "id": "f522e64a-effb-4059-85a8-08bd045adce1",
+                "content": "Planifier et pr\u00e9parer le post sur LinkedIn",
+                "category": "work"
+            },
+            {
+                "done": false,
+                "id": "6f8e680b-059f-4df5-bef6-4cb72baa6e66",
+                "content": "Migrer le lancement de l'application vers core.py",
+                "category": "work"
+            }
+        ]
+    },
+    "test": {
+        "sport": [
+            {
+                "id": "c3bc84df-8036-4da3-96b8-d58373fadd8c",
+                "content": "Join a LinkedIn group related to your industry",
+                "category": "sport",
+                "done": false
+            }
+        ],
+        "nutrition": [
+            {
+                "id": "c51918df-4bad-4cb3-90ce-bc01d10c529b",
+                "content": "Share relevant articles or tips on your LinkedIn profile",
+                "category": "nutrition",
+                "done": false
+            }
+        ],
+        "sleep": [],
+        "health": [
+            {
+                "id": "34c6d6d7-30ae-40d3-8fbe-49047ca6750b",
+                "content": "Engage with other LinkedIn users by commenting on their posts",
+                "category": "health",
+                "done": false
+            }
+        ]
+    },
+    "3 tasks to do to gain visibility in the linkedin community": {}
 }
