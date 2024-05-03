@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
 
+
+
 class TaskManagerInterface(ABC):
     @property
     @abstractmethod
@@ -26,16 +28,20 @@ class TaskManagerInterface(ABC):
         pass
 
 class TaskManager(TaskManagerInterface):
-    task_properties = {
-        "done": bool,
-        "id": str,
-        "content": str,
-        "category": str,
-    }
+    #has to be initialized
+    properties_storage = None; #has to be a dict
+    task_properties = None; # has to be a dict
 
+    @classmethod
+    def init(cls) -> None:
+        storage = cls.initializeProperty()
+        cls.properties_storage = storage
+        cls.task_properties = storage[cls.current_profile]
+        print("init TaskManager")
     @classmethod
     def add_property(cls, name: str) -> None:
         cls.task_properties[name] = str
+       
 
     @classmethod
     def add_task(cls, task: dict) -> None:

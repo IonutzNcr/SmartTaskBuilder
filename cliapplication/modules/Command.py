@@ -64,6 +64,9 @@ class CommandsFunction:
         print("profile changed to " + name)
     
     #TODO: ADD DYNAMIC ATTRIBUTES
+    def add_property(name:str):
+        ProfileManager.add_property(name)
+        print("property added")
     
     def category(name:str):
         ProfileManager.add_category(name)

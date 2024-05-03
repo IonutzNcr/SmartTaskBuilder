@@ -1,7 +1,7 @@
 #!/usr/bin/expect -f
 
 # Set timeout for each command
-set timeout 5
+set timeout 2
 
 # Launch the Python application
 spawn python3 App.py
@@ -12,13 +12,24 @@ expect "Enter command:"
 # Send the 'view' command and wait for the next prompt
 # send "view\r"
 # expect "Enter command:"
-send "use test\r"
-expect "Enter command:"
-
-
-# send "add 'jouer a Outer Wild'\r"
+# send "use test\r"
 # expect "Enter command:"
 
+send "view\r"
+expect "Enter command:"
+
+send "add_property exp\r"
+expect "Enter command:"
+
+send "view\r"
+expect "Enter command:"
+
+send "add 'prendre un café'\r"
+expect "Enter command:"
+# send "add 'jouer a Outer Wild'\r"
+# expect "Enter command:"
+send "view\r"
+expect "Enter command:"
 # Send the 'search' command with an argument
 # send "search oth\r"
 # expect "Enter command:"
@@ -35,11 +46,11 @@ expect "Enter command:"
 # send "sort category:desc\r"
 # expect "Enter command:"
 
-send  "generate '3 tasks to do to gain visibility in the linkedin community'\r"
-expect "Enter command:"
+# send  "generate '3 tasks to do to gain visibility in the linkedin community'\r"
+# expect "Enter command:"
 
-send "view\r"
-expect "Enter command:"
+# send "view\r"
+# expect "Enter command:"
 
 
 

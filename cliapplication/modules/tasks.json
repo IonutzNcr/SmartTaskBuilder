@@ -39,6 +39,20 @@
                 "id": "b3f3dd30-aed3-4831-ba04-d1beac21b95e",
                 "content": "mettre le linge \u00e0 s\u00e9cher",
                 "category": "other"
+            },
+            {
+                "done": false,
+                "id": "556efde1-e51a-455a-a839-8c8136d07b95",
+                "content": "Prendre un caf\u00e9",
+                "category": "other",
+                "exp": 0
+            },
+            {
+                "done": false,
+                "id": "c0126169-ccd0-4e4c-b7d6-58be470834ce",
+                "content": "prendre un caf\u00e9",
+                "category": "other",
+                "exp": null
             }
         ]
     },
@@ -89,6 +103,12 @@
                 "done": false,
                 "id": "6f8e680b-059f-4df5-bef6-4cb72baa6e66",
                 "content": "Migrer le lancement de l'application vers core.py",
+                "category": "work"
+            },
+            {
+                "done": false,
+                "id": "78aa593e-9c60-4c71-ad6f-deb13aff61cf",
+                "content": "Nettoyer tous les prints inutiles dans le code",
                 "category": "work"
             }
         ]

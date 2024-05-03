@@ -35,8 +35,33 @@ class Storage:
         else:
             print("im here wtf")
             return False
+    @classmethod
+    def initializeProperty(cls) -> dict:
         
- 
+        filepath = "properties.json"
+        
+        print(os.path.isfile(filepath))
+        if os.path.isfile(filepath):
+            # print("is not working")
+            tasks_data = None
+            with open('tasks.json', 'r') as file:
+                # Read the entire contents of the file
+                file_contents = file.read()
+                tasks_data = json.loads(file_contents)
+             # Convert each task dictionary back into a Task object
+            cls.properties_storage = tasks_data
+            print(Co.WARNING +" ***storage filled*** "+ Co.ENDC)
+        else:
+            cls.properties_storage = {
+                "default": {
+                    "category": str,
+                    "task": str,
+                    "done": bool
+                }
+            }
+       
+        
+      
 # Storage.persistTasks()
 # Storage.fillStorage()
 # print(Storage.tasks)
