@@ -1,16 +1,15 @@
-
+from ColorCli import Colors
+from Printer import Printer
 
 class Filter:
     #TODO: make it work for done:True special case
     @classmethod
     def filter(cls, profile_dic, filter: str) -> None:
-        print("filtering for: " + filter)
         filter_dict = {}
-        print(filter)
+        Printer.Message.print_system_message("Filtering for: " + filter)
         category = filter.split(":")[0]  
         _filter = filter.split(":")[1]
-        print("category: " + category)
-        print("filter: " + _filter)
+       
         if category == "category":
             filter_dict[_filter] = profile_dic[_filter]
         else:

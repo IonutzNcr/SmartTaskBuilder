@@ -1,5 +1,6 @@
 from Command import CommandsFunction
 from Command import ProfileManager
+from Printer import Printer
 import re
 
 #TODO: Better Implementation required for better ux 
@@ -31,32 +32,21 @@ class EventListener:
             elif argument is not None:
                 action = input_arr[0]
             else:
-                raise Exception("Too many arguments or nothing has been written")
+                Printer.Message.print_error_message("Invalid number of arguments. Please check the command with help command.")
             
             # Call the appropriate function from CommandsFunction class
             if argument is not None:
                 try:
                     getattr(CommandsFunction, action)(argument)
                 except Exception as e:
-                    print(e)
-                    print("In Argument condition Event Listener")
+                    Printer.print_error_message("Invalid command (L43 | EventListener.py)")
             else:
                 try:  
                     getattr(CommandsFunction, action)()
                 except Exception as e:
-                    print(e)
-                    print(action)
-                    print("In No Argument condition Event Listener")
+                    Printer.print_error_message("Invalid command (L47 | EventListener.py)")
+                         
         except Exception as e:
-            print("In Event Listener")
-            print(e)
-            print("end")
-
-# Example usage:
-# ProfileManager.init_profile()
-# # EventListener.Listen("add 'faire les courses'")
-# # EventListener.Listen("add 'mettre le linge à sécher'")
-# EventListener.Listen('view')
-# EventListener.Listen('check "713c7193-0345-4286-a30a-7baf64374eaf"')
-# EventListener.Listen('delete "96d0a3fa-800a-4631-b560-e791e6d094ad"')
-# EventListener.Listen('view')
+            
+            # Printer.print_debug_message(e)
+            Printer.Message.print_error_message("Error in EventListener.py L53", e)

@@ -17,6 +17,7 @@
 
 from abc import ABC, abstractmethod
 from typing import Type
+from Printer import Printer
 
 
 class CategoryManagerInterface(ABC):
@@ -64,31 +65,33 @@ class CategoryManager(CategoryManagerInterface):
         if cls.profile_dict[cls.current_profile].get(name) is None:
             cls.profile_dict[cls.current_profile][name] = []
             cls.persist_tasks()
-            print("add category")
+            Printer.print_system_message("Category: " + name + " added")
         else:
-            print("category already exists")
+            Printer.print_error_message("Category already exists")
+            
     @classmethod
     def delete_category(cls: Type['CategoryManager'], name:str):
         if cls.profile_dict[cls.current_profile].get(name) is not None:
             del cls.profile_dict[cls.current_profile][name]
             cls.persist_tasks()
-            print("delete category")
+            Printer.print_system_message("Category: " + name + " deleted")
         else:
-            print("category does not exist")
+            Printer.print_error_message("Category does not exist")
+            
     @classmethod
     def update_category(cls: Type['CategoryManager'], name:str, new_name:str):
         if cls.profile_dict[cls.current_profile].get(name) is not None:
             cls.profile_dict[cls.current_profile][new_name] = cls.profile_dict[cls.current_profile].pop(name)
-            print("update category")
+            Printer.print_system_message("Category: " + name + " updated to " + new_name)
         else:
-            print("category does not exist")
+            Printer.print_error_message("Category does not exist")
         
     @classmethod
-    def list_items(cls: Type['CategoryManager'] ,category:str):
-        print(cls.profile_dict[cls.current_profile][category])
-        print("list items")
+    def list_items(cls: Type['CategoryManager'], category:str):
+        Printer.print_debug_message(cls.profile_dict[cls.current_profile][category])
+        
+        
     @classmethod
     def list_categories(cls: Type['CategoryManager']):
-        print(cls.profile_dict[cls.current_profile].keys())
-        print("list categories")
-# CategoryManager.add_category("ambition")
+        Printer.print_debug_message(cls.profile_dict[cls.current_profile].keys())
+

@@ -8,6 +8,7 @@ from Profile import ProfileManager
 class Runner :
     def run():
         ProfileManager.init_profile()
+        ProfileManager.initializeProperty()
         print("Welcome to my wonderfull cli app! Tape help to get some help :)")
         isRunning = True
        

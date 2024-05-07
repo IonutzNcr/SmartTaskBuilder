@@ -38,18 +38,25 @@ class TaskManager(TaskManagerInterface):
         cls.properties_storage = storage
         cls.task_properties = storage[cls.current_profile]
         print("init TaskManager")
+        
     @classmethod
     def add_property(cls, name: str) -> None:
-        cls.task_properties[name] = str
-       
+        try:
+            cls.task_properties[name] = "str"
+            #TODO: call the functions that persist the properties
+            cls.persist_properties()
+        except:
+            raise Exception("Error in add_property")
+    
+    def del_property(cls, name:str) -> None:
+        del cls.task_properties[name]
 
     @classmethod
     def add_task(cls, task: dict) -> None:
         try:
             cls.profile_dict[cls.current_profile][task["category"]].append(task)
             cls.persist_tasks()
-            # print(cls.profile_dict)
-            print("add Task")
+            
         except:
             raise Exception("Error in add_task")
             
@@ -63,6 +70,7 @@ class TaskManager(TaskManagerInterface):
                     print("checked task")
                     return
         print("checked task")
+        
     @classmethod
     def delete_task(cls, id: str) -> None:
         for category in cls.profile_dict[cls.current_profile]:
@@ -72,8 +80,8 @@ class TaskManager(TaskManagerInterface):
                     cls.persist_tasks()
                     print(f"Task with ID {id} deleted from {category}")
                     return
-        
         print("delete task")
+        
     def generate_tasks(input: str) -> None:
         print(f"generated taks depending on {input}")
     

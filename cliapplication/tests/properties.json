@@ -1,0 +1,8 @@
+{
+    "default": {
+        "id": "str",
+        "category": "str",
+        "task": "str",
+        "done": "bool"
+    }
+}

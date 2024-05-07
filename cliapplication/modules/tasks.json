@@ -1,144 +1,106 @@
 {
     "default": {
-        "hobby": [
-            {
-                "done": false,
-                "id": "e89eb0f7-2a78-40c7-a78f-ef2f334bec64",
-                "content": "Jouer \u00e0 Outer Wild",
-                "category": "hobby"
-            },
-            {
-                "done": false,
-                "id": "5f50902e-08e2-4415-8ecf-5b53f092ae62",
-                "content": "Jouer \u00e0 Outer Wild",
-                "category": "hobby"
-            }
-        ],
-        "work": [],
-        "other": [
-            {
-                "done": true,
-                "id": "713c7193-0345-4286-a30a-7baf64374eaf",
-                "content": "faire les courses",
-                "category": "other"
-            },
-            {
-                "done": false,
-                "id": "d9391ac0-5cc3-4d5e-9be8-20778bf4df36",
-                "content": "mettre le linge \u00e0 s\u00e9cher",
-                "category": "other"
-            },
-            {
-                "done": false,
-                "id": "96d0a3fa-800a-4631-b560-e791e6d094ad",
-                "content": "faire les courses",
-                "category": "other"
-            },
-            {
-                "done": false,
-                "id": "b3f3dd30-aed3-4831-ba04-d1beac21b95e",
-                "content": "mettre le linge \u00e0 s\u00e9cher",
-                "category": "other"
-            },
-            {
-                "done": false,
-                "id": "556efde1-e51a-455a-a839-8c8136d07b95",
-                "content": "Prendre un caf\u00e9",
-                "category": "other",
-                "exp": 0
-            },
-            {
-                "done": false,
-                "id": "c0126169-ccd0-4e4c-b7d6-58be470834ce",
-                "content": "prendre un caf\u00e9",
-                "category": "other",
-                "exp": null
-            }
-        ]
-    },
-    "ionut": {
-        "bien-etre": [
-            {
-                "done": false,
-                "id": "20c13848-485c-43ac-9239-907813309676",
-                "content": "Pratiquer la m\u00e9ditation pour se recentrer et se relaxer",
-                "category": "bien-etre"
-            }
-        ]
-    },
-    "alex": {},
-    "today": {
+        "hobby": [],
         "work": [
             {
-                "done": true,
-                "id": "8d672fce-4adf-4b05-ba6a-cac61ea1e806",
-                "content": "Ajouter la g\u00e9n\u00e9ration de contenu par IA",
-                "category": "work"
+                "id": "eecabb96-7e5b-4a57-a3d9-e7fdbe4ecb88",
+                "content": "Les bases de la programmation en Java",
+                "category": "work",
+                "ccc": "Concepts de base",
+                "difficulty": "Facile",
+                "done": false
             },
             {
-                "done": true,
-                "id": "020fc2bd-1bdd-44ae-b1c1-2722c79a4cf3",
-                "content": "Trouver des solutions pour r\u00e9gler le probl\u00e8me d'ANSI sur la recherche.",
-                "category": "work"
+                "id": "c6fbe913-a78d-4b4d-b75d-107b118b4e52",
+                "content": "Les classes et les objets en Java",
+                "category": "work",
+                "ccc": "Programmation orient\u00e9e objet",
+                "difficulty": "Moyen",
+                "done": false
             },
             {
-                "done": false,
-                "id": "8a35106d-6f14-42ac-9fc6-8ae4e5b0b55d",
-                "content": "Ajout des attribut dynamique pour les taches",
-                "category": "work"
+                "id": "beed95e3-5ebd-45b3-9291-2b57848af862",
+                "content": "Les interfaces et les classes abstraites en Java",
+                "category": "work",
+                "ccc": "Programmation orient\u00e9e objet",
+                "difficulty": "Moyen",
+                "done": false
             },
             {
-                "done": false,
-                "id": "05c334f0-809f-4bd9-9384-f10a88313bef",
-                "content": "Tourner la vid\u00e9o de mon smarttaskmanager cli application",
-                "category": "work"
+                "id": "ea3c557a-4806-4d8b-bfb4-7c7c9da090b4",
+                "content": "Les exceptions et la gestion des erreurs en Java",
+                "category": "work",
+                "ccc": "Gestion des erreurs",
+                "difficulty": "Moyen",
+                "done": false
             },
             {
-                "done": false,
-                "id": "f522e64a-effb-4059-85a8-08bd045adce1",
-                "content": "Planifier et pr\u00e9parer le post sur LinkedIn",
-                "category": "work"
+                "id": "94333ddd-8f39-463b-a4bd-ebb05f438c9a",
+                "content": "Les collections en Java (List, Set, Map)",
+                "category": "work",
+                "ccc": "Structures de donn\u00e9es",
+                "difficulty": "Moyen",
+                "done": false
             },
             {
-                "done": false,
-                "id": "6f8e680b-059f-4df5-bef6-4cb72baa6e66",
-                "content": "Migrer le lancement de l'application vers core.py",
-                "category": "work"
+                "id": "b118c255-1b68-48a7-abad-a2b1ff7752b6",
+                "content": "Les threads et la programmation concurrente en Java",
+                "category": "work",
+                "ccc": "Programmation parall\u00e8le",
+                "difficulty": "Difficile",
+                "done": false
             },
             {
-                "done": false,
-                "id": "78aa593e-9c60-4c71-ad6f-deb13aff61cf",
-                "content": "Nettoyer tous les prints inutiles dans le code",
-                "category": "work"
-            }
-        ]
-    },
-    "test": {
-        "sport": [
+                "id": "00e07dd6-5fa9-412f-aab0-9252799bdd12",
+                "content": "Les streams et les op\u00e9rations fonctionnelles en Java",
+                "category": "work",
+                "ccc": "Programmation fonctionnelle",
+                "difficulty": "Difficile",
+                "done": false
+            },
             {
-                "id": "c3bc84df-8036-4da3-96b8-d58373fadd8c",
-                "content": "Join a LinkedIn group related to your industry",
-                "category": "sport",
+                "id": "6f1ed03e-3de3-42ee-b7d1-285780d5c2a0",
+                "content": "La manipulation des fichiers et des flux en Java",
+                "category": "work",
+                "ccc": "Entr\u00e9e/Sortie",
+                "difficulty": "Moyen",
+                "done": false
+            },
+            {
+                "id": "262bcdb1-b6c1-4483-8644-1e94bff8758a",
+                "content": "Les annotations et la r\u00e9flexion en Java",
+                "category": "work",
+                "ccc": "M\u00e9ta-programmation",
+                "difficulty": "Difficile",
+                "done": false
+            },
+            {
+                "id": "3a772c22-493f-4c63-957b-575028a2f35e",
+                "content": "La programmation orient\u00e9e aspect (AOP) en Java",
+                "category": "work",
+                "ccc": "Approche modulaire",
+                "difficulty": "Difficile",
                 "done": false
             }
         ],
-        "nutrition": [
+        "other": [
             {
-                "id": "c51918df-4bad-4cb3-90ce-bc01d10c529b",
-                "content": "Share relevant articles or tips on your LinkedIn profile",
-                "category": "nutrition",
-                "done": false
-            }
-        ],
-        "sleep": [],
-        "health": [
+                "done": false,
+                "id": "3e3ae5dd-8e31-4761-85a7-c7f01872c15c",
+                "content": "Learn about Java programming language",
+                "category": "other",
+                "ccc": "0",
+                "difficulty": "medium"
+            },
             {
-                "id": "34c6d6d7-30ae-40d3-8fbe-49047ca6750b",
-                "content": "Engage with other LinkedIn users by commenting on their posts",
-                "category": "health",
-                "done": false
+                "done": false,
+                "id": "007065c2-9929-436a-a6f0-ddb055079381",
+                "content": "Dormir et r\u00e9ussir le test en ligne de la 42 d'aujourd'hui",
+                "category": "other",
+                "ccc": "===cc====",
+                "difficulty": "easy"
             }
         ]
     },
-    "3 tasks to do to gain visibility in the linkedin community": {}
+    "today": {}
 }

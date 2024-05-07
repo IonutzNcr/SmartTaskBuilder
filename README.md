@@ -37,10 +37,12 @@ Issues:
 [   ] Fix the done filtering
 [   ] Fix the done sorting 
 [ x ] Fix search persistance 
+[   ] Prevent OpenAi to assign number type answer in his json
 _____________________________________
 Test with unittest:
 ------------------------------------------------
 [ x ] filtering
 [ x ] sorting
 [ x ] test on pandas 
+[ x ] test on persisting data for task attributes
 ____________________________________________

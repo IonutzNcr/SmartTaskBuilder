@@ -67,7 +67,8 @@ class ProfileManager(ProfileManagerInterface, CategoryManager, TaskManager, Stor
         cls.current_profile = "default"
         if cls.fillStorage():
             print("profile filled")
-        else :
+            # print("")
+        else:
             cls.profile_dict = {cls.current_profile: {"hobby": [], "work": [], "other": []}}            
         print("profile initialized")
         cls.persist_tasks()
@@ -80,6 +81,7 @@ class ProfileManager(ProfileManagerInterface, CategoryManager, TaskManager, Stor
         Not gonna implement it because u can use change_profile instead
         """
         print("profile added")
+        
     @classmethod
     def delete_profile(cls, name:str):
         response = input("Are you sure you want to delete this profile ?\n By deleting this profile everything that comes with will be deleted forever\n (y/n)")
@@ -89,6 +91,7 @@ class ProfileManager(ProfileManagerInterface, CategoryManager, TaskManager, Stor
             print("profile deleted")
         else:
             print("profile not deleted")
+            
     @classmethod
     def change_profile(cls, name:str):
         if cls.profile_dict.get(name) is not None:
@@ -97,7 +100,9 @@ class ProfileManager(ProfileManagerInterface, CategoryManager, TaskManager, Stor
             cls.profile_dict[name] = {}
             cls.current_profile = name
             cls.persist_profiles()
+        cls.task_properties = cls.properties_storage[cls.current_profile]
         print("profile changed")
+        
     @classmethod
     def persist_profiles(cls):
         cls.persist_tasks()

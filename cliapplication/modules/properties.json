@@ -1,0 +1,10 @@
+{
+    "default": {
+        "done": "bool",
+        "id": "str",
+        "content": "str",
+        "category": "str",
+        "ccc": "str",
+        "difficulty": "str"
+    }
+}

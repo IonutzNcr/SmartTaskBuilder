@@ -5,6 +5,7 @@ from Searcher import Searcher
 from Displayer import Displayer
 from Filter import Filter
 from Sorter import SorterManager
+from Printer import Printer
 import json
 import uuid
 
@@ -23,15 +24,16 @@ class CommandsFunction:
         task_by_openai["done"] = False
         
         ProfileManager.add_task(task_by_openai)
-        # print(task_by_openai)
-        print(" added " + input_us)
+        Printer.print_system_message("Task added successfully")
 
 
     #TODO Refactoring the view function
     def view():
         profile_dic = ProfileManager.profile_dict[ProfileManager.current_profile]
         task_properties = ProfileManager.task_properties
+        
         Displayer.displayTable(profile_dic, task_properties)
+        
     def check(id:str):
         # print(Colors.OKBLUE +"starting checking ..." + Colors.ENDC)
         found_task = False
@@ -46,7 +48,7 @@ class CommandsFunction:
                     break
         
         if found_task == False:
-            raise Exception("not id found")
+            Printer.print_error_message("Task not found")
     
     def delete(id):
             found_task = False
@@ -58,26 +60,27 @@ class CommandsFunction:
                         break
             
             if found_task == False:
-                raise Exception("not id found")        
+                Printer.print_error_message("Task not found")   
+                
     def use(name:str):
         ProfileManager.change_profile(name)
-        print("profile changed to " + name)
+        Printer.print_system_message("profile changed to " + name)
     
-    #TODO: ADD DYNAMIC ATTRIBUTES
+    #TODO: ADD DYNAMIC ATTRIBUTES // is done I think.
     def add_property(name:str):
         ProfileManager.add_property(name)
-        print("property added")
+        
     
     def category(name:str):
         ProfileManager.add_category(name)
-        print("category added")
+        
 
     def all_categories():
-        print(ProfileManager.profile_dict[ProfileManager.current_profile].keys())
+        Printer.print_debug_message(ProfileManager.profile_dict[ProfileManager.current_profile].keys())
 
     def delete_category(name:str):
         ProfileManager.delete_category(name)
-        print("category deleted")
+        
 
     def search(input:str):
         Searcher.search(input)
@@ -88,15 +91,14 @@ class CommandsFunction:
         Displayer.displayTable(filtered_dict, ProfileManager.task_properties)
         
     def sort(input:str):
-        print("sorting by " + input)
         try:
             dt = SorterManager.convert_to_array(ProfileManager.profile_dict[ProfileManager.current_profile])
-            print(dt)
+            # Printer.print_debug_message(dt)
             data = SorterManager.sorting(dt, input)
-            print(data)
+            # Printer.print_debug_message(data)
             Displayer.displayTableWithSorting(data)
         except ValueError as e:
-            print(e)
+            Printer.print_error_message("Error in sort method | Comand.py L101 ", e)
             
     def generate(_input:str):
         """
@@ -113,16 +115,16 @@ class CommandsFunction:
             resp = input("Do you want to save the tasks? y/n")
             if resp == "y":
                 for category in tasks:
-                    print ("cattttttegory" + category)
+                    
                     if ProfileManager.profile_dict[ProfileManager.current_profile].get(category) is None:
                         ProfileManager.profile_dict[ProfileManager.current_profile][category] = []
                     for task in tasks[category]:
                         ProfileManager.add_task(task)
-                print("Tasks added")
+                Printer.print_system_message("Tasks saved")
             else:
-                print("Tasks not saved")
+                Printer.print_system_message("Tasks not saved")
         except:
-            print("Error in the tasks ****")
+            Printer.print_error_message("Error in generate method | Command.py L127")
         
        
        
