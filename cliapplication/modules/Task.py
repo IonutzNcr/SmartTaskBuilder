@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from Printer import Printer
 
 
 
@@ -37,7 +38,7 @@ class TaskManager(TaskManagerInterface):
         storage = cls.initializeProperty()
         cls.properties_storage = storage
         cls.task_properties = storage[cls.current_profile]
-        print("init TaskManager")
+        Printer.print_system_message("init TaskManager")
         
     @classmethod
     def add_property(cls, name: str) -> None:
@@ -67,7 +68,7 @@ class TaskManager(TaskManagerInterface):
                 if task["id"] == id:
                     task["done"] = True
                     cls.persist_tasks()
-                    print("checked task")
+                    Printer.print_system_message("Task has been checked successfully.")
                     return
         print("checked task")
         
@@ -78,11 +79,11 @@ class TaskManager(TaskManagerInterface):
                 if task["id"] == id:
                     cls.profile_dict[cls.current_profile][category].remove(task)
                     cls.persist_tasks()
-                    print(f"Task with ID {id} deleted from {category}")
+                    Printer.print_system_message(f"Task with ID {id} deleted from {category}")
                     return
-        print("delete task")
-        
+        Printer.print_error_message("Task not found")
+    #not implemented / not used  
     def generate_tasks(input: str) -> None:
-        print(f"generated taks depending on {input}")
+        Printer.print_system_message(f"generated taks depending on {input}")
     
 # TaskManager.addTask("je veux mourrir")

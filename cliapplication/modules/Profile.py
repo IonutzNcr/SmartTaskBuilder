@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 from Category import CategoryManager
 from Storage import Storage
 from Task import TaskManager
+from Printer import Printer
 
 
 class ProfileManagerInterface(ABC):
@@ -66,11 +67,11 @@ class ProfileManager(ProfileManagerInterface, CategoryManager, TaskManager, Stor
     def init_profile(cls):
         cls.current_profile = "default"
         if cls.fillStorage():
-            print("profile filled")
+            Printer.print_system_message("Profile loaded")
             # print("")
         else:
             cls.profile_dict = {cls.current_profile: {"hobby": [], "work": [], "other": []}}            
-        print("profile initialized")
+        Printer.print_system_message("Profile initialized")
         cls.persist_tasks()
     
 
@@ -80,7 +81,7 @@ class ProfileManager(ProfileManagerInterface, CategoryManager, TaskManager, Stor
         """
         Not gonna implement it because u can use change_profile instead
         """
-        print("profile added")
+        Printer.print_error_message("Not implemented")
         
     @classmethod
     def delete_profile(cls, name:str):
@@ -88,9 +89,9 @@ class ProfileManager(ProfileManagerInterface, CategoryManager, TaskManager, Stor
         if response == "y":
             del cls.profile_dict[name]
             cls.persist_profiles()
-            print("profile deleted")
+            Printer.print_system_message("profile deleted")
         else:
-            print("profile not deleted")
+            Printer.print_system_message("profile not deleted")
             
     @classmethod
     def change_profile(cls, name:str):
@@ -101,10 +102,10 @@ class ProfileManager(ProfileManagerInterface, CategoryManager, TaskManager, Stor
             cls.current_profile = name
             cls.persist_profiles()
         cls.task_properties = cls.properties_storage[cls.current_profile]
-        print("profile changed")
+        Printer.print_system_message("profile changed to " + name)
         
     @classmethod
     def persist_profiles(cls):
         cls.persist_tasks()
-        print("profiles persisted")
+        Printer.print_system_message("profiles persisted")
     

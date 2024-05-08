@@ -1,6 +1,7 @@
 import json
 import os
 from ColorCli import Colors as Co
+from Printer import Printer
 
 
 
@@ -17,8 +18,7 @@ class Storage:
         """
             Need to be called once to populate the tasks with the data we already persisted
         """
-        # print("wtf")
-        # print(cls)
+        
         # task.json if tested from the module or ./modules/task.json if called from an external file
         filepath = "tasks.json"
         
@@ -31,10 +31,10 @@ class Storage:
                 tasks_data= json.loads(file_contents)
              # Convert each task dictionary back into a Task object
             cls.profile_dict = tasks_data
-            print(Co.WARNING +" ***storage filled*** "+ Co.ENDC)
+            Printer.print_system_message("Storage filled")
             return True
         else:
-            print("im here wtf")
+            Printer.print_debug_message("No tasks to fill")
             return False
         
     @classmethod
@@ -55,9 +55,9 @@ class Storage:
                 # Convert each task dictionary back into a Task object
                 cls.properties_storage = tasks_data
                 cls.task_properties = cls.properties_storage["default"]
-                print(cls.properties_storage)
-                print(cls.task_properties)
-                print(" ***storage filled*** ")
+                Printer.print_debug_message(cls.properties_storage)
+                Printer.print_debug_message(cls.task_properties)
+                Printer.print_system_message(" ***storage filled*** ")
             else:
                
                 cls.properties_storage = {
@@ -69,14 +69,11 @@ class Storage:
                     }
                 }
                 cls.task_properties = cls.properties_storage["default"]
-                print(cls.properties_storage)
+                Printer.print_debug_message(cls.properties_storage)
                 with open(filepath, 'w') as file:
-                    print("propertiesprint")
-                    print(cls.properties_storage)
-                    print(json.dumps(cls.properties_storage))
                     file.write(json.dumps(cls.properties_storage, indent=4)) 
         except:
-            print("Error in initializeProperty")
+            Printer.print_error_message("Error in initializeProperty")
                    
     @classmethod    
     def persist_properties(cls) -> None:
@@ -85,8 +82,6 @@ class Storage:
             file.write(jsonTask)
         
         
-# Storage.persistTasks()
-# Storage.fillStorage()
-# print(Storage.tasks)
+
 
 

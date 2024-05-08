@@ -1,5 +1,6 @@
 import re
 import pandas as pd
+from Printer import Printer
 # from Displayer import Displayer
 
 class SorterManager:
@@ -15,7 +16,7 @@ class SorterManager:
         except ValueError:
             try:
                 nb = re.sub(r'[^\d.]', '', type)
-                print(nb)
+                Printer.print_debug_message("nb: " + nb)
                 return float(nb)
             except ValueError:
                 return False
@@ -31,20 +32,10 @@ class SorterManager:
             
             df = pd.DataFrame()
             for category in dictionary:
-                print(category)
+                Printer.print_debug_message("category: " + category)
                 df_category = pd.json_normalize(dictionary[category])
                 df = pd.concat([df, df_category], ignore_index=True) 
             
-           
-
-            # Ajout d'une colonne pour identifier la catégorie
-            #no need of this rite
-            # df_hobby['category'] = 'hobby'
-            # df_other['category'] = 'other'
-
-          
-            
-            print("***end***")
             return df
         except:
             #wrong message description
@@ -58,11 +49,11 @@ class SorterManager:
         Dataframe must be sorted and having this format:
         [{},{},{}]
         """
-        print("*******displaying sorted table step 2")
+        Printer.print_debug_message("input: " + input)
         try:
             name = input.split(":")[0]
             order = input.split(":")[1]
-            print(name + " " + order)
+            Printer.print_debug_message("name: " + name)
             if order.upper() != 'ASC' and order.upper() != 'DESC':
                 raise ValueError("Order must be ASC or DESC")  
         except:
