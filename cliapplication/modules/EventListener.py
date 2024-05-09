@@ -39,6 +39,7 @@ class EventListener:
                 try:
                     getattr(CommandsFunction, action)(argument)
                 except Exception as e:
+                    Printer.print_debug_message(e)
                     Printer.print_error_message("Invalid command (L43 | EventListener.py)")
             else:
                 try:  

@@ -19,10 +19,12 @@ class CommandsFunction:
     
     def add(input_us:str):
         # get the category from openai; add with the storage, persist
+        Printer.print_debug_message("step 1")
         task_by_openai = Assisstant.assignCategory(input_us)
         task_by_openai["id"] = str(uuid.uuid4())
         task_by_openai["done"] = False
-        
+        Printer.print_debug_message(task_by_openai)
+        Printer.print_debug_message("im here in add method")
         ProfileManager.add_task(task_by_openai)
         Printer.print_system_message("Task added successfully")
 

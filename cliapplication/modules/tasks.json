@@ -102,5 +102,65 @@
             }
         ]
     },
-    "today": {}
+    "today": {
+        "low_level_programmation": [
+            {
+                "done": false,
+                "id": "f5ce995b-b181-4439-a3a0-7729f1e5a357",
+                "content": "Reading the book about programming in C",
+                "category": "low_level_programmation",
+                "ccc": null,
+                "difficulty": null,
+                "exp": null,
+                "time": null
+            }
+        ],
+        "computer_science": [],
+        "data_structure_and_algorithms": [],
+        "ecole 42": [
+            {
+                "done": false,
+                "id": "1c9a516c-6bda-45c4-8395-5cc4309c465f",
+                "content": "Faire les courses a carrefour",
+                "category": "ecole 42",
+                "ccc": 0,
+                "difficulty": "low",
+                "exp": 0,
+                "time": 0
+            },
+            {
+                "done": false,
+                "id": "e6061d18-3a36-4145-a0af-3a23988cfaa0",
+                "content": "Pour s'inscrire \u00e0 l'\u00e9cole 42, il faut d'abord passer par la piscine, un programme intensif de 4 semaines o\u00f9 les participants apprennent les bases de la programmation en C et de la m\u00e9thodologie 42. Ensuite, les candidats doivent r\u00e9ussir les diff\u00e9rents projets et \u00e9preuves pour \u00eatre s\u00e9lectionn\u00e9s.",
+                "category": "ecole 42",
+                "ccc": false,
+                "difficulty": "moyen",
+                "exp": null,
+                "time": null
+            }
+        ],
+        "WAC": [
+            {
+                "done": false,
+                "id": "04b8e8da-0622-4eb0-890d-a1bbcec8b29f",
+                "content": "Faire le projet pour la WAC intranet autoecole en django",
+                "category": "WAC",
+                "ccc": null,
+                "difficulty": null,
+                "exp": null,
+                "time": null
+            },
+            {
+                "done": false,
+                "id": "3a812041-3260-49ce-9e49-ad94e3732972",
+                "content": "Try to land on the quantum moon in Outer Wilds.",
+                "category": "WAC",
+                "ccc": "low_level_programmation",
+                "difficulty": "medium",
+                "exp": 50,
+                "time": "2 hours"
+            }
+        ]
+    },
+    "todat": {}
 }

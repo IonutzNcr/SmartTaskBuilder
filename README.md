@@ -38,6 +38,7 @@ Issues:
 [   ] Fix the done sorting 
 [ x ] Fix search persistance 
 [   ] Prevent OpenAi to assign number type answer in his json
+[ x ] Creation des profiles devra remettre les attributes des taches à zero
 _____________________________________
 Test with unittest:
 ------------------------------------------------

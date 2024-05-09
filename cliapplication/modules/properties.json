@@ -5,6 +5,8 @@
         "content": "str",
         "category": "str",
         "ccc": "str",
-        "difficulty": "str"
+        "difficulty": "str",
+        "exp": "str",
+        "time": "str"
     }
 }
