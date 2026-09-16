@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from ColorCli import Colors
+from modules.ColorCli import Colors
 
 class PrinterInterface(ABC):
     @abstractmethod

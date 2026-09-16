@@ -1,5 +1,5 @@
-from ColorCli import Colors
-from Printer import Printer
+from modules.ColorCli import Colors
+from modules.Printer import Printer
 
 class Filter:
     #TODO: make it work for done:True special case

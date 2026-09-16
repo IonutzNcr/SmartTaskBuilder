@@ -17,7 +17,7 @@
 
 from abc import ABC, abstractmethod
 from typing import Type
-from Printer import Printer
+from modules.Printer import Printer
 
 
 class CategoryManagerInterface(ABC):

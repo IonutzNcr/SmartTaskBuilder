@@ -1,6 +1,6 @@
-from Command import CommandsFunction
-from Command import ProfileManager
-from Printer import Printer
+from modules.Command import CommandsFunction
+from modules.Command import ProfileManager
+from modules.Printer import Printer
 import re
 
 #TODO: Better Implementation required for better ux 

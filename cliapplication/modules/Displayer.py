@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
-from ColorCli import Colors
-from Printer import Printer
+from modules.ColorCli import Colors
+from modules.Printer import Printer
 import re
 class DisplayerManagerInterface(ABC):
     @abstractmethod

@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
-from Profile import ProfileManager
-from Displayer import Displayer
-from ColorCli import Colors
-from Printer import Printer
+from modules.Profile import ProfileManager
+from modules.Displayer import Displayer
+from modules.ColorCli import Colors
+from modules.Printer import Printer
 import re
 
 class SearcherManagerInterface(ABC):

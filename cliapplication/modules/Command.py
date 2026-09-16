@@ -1,11 +1,11 @@
-from ColorCli import Colors
-from OpenAi import Assisstant
-from Profile import ProfileManager
-from Searcher import Searcher
-from Displayer import Displayer
-from Filter import Filter
-from Sorter import SorterManager
-from Printer import Printer
+from modules.ColorCli import Colors
+from modules.OpenAi import Assisstant
+from modules.Profile import ProfileManager
+from modules.Searcher import Searcher
+from modules.Displayer import Displayer
+from modules.Filter import Filter
+from modules.Sorter import SorterManager
+from modules.Printer import Printer
 import json
 import uuid
 

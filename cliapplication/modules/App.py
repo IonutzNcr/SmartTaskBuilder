@@ -2,23 +2,26 @@
 Lunch the program
 """
 
-from EventListener import EventListener
-from Profile import ProfileManager
+from modules.EventListener import EventListener
+from modules.Profile import ProfileManager
 
-class Runner :
+
+class Runner:
+    @staticmethod
     def run():
         ProfileManager.init_profile()
         ProfileManager.initializeProperty()
         print("Welcome to my wonderfull cli app! Tape help to get some help :)")
         isRunning = True
-       
+
         while isRunning:
-            
             input_us = input("What do you want to do:\n--> ")
-            
+
             if input_us == "exit":
                 isRunning = False
-                break 
+                break
             EventListener.Listen(input_us)
-       
-Runner.run()
+
+
+if __name__ == "__main__":
+    Runner.run()

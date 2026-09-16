@@ -1,7 +1,7 @@
 import re
 import pandas as pd
-from Printer import Printer
-# from Displayer import Displayer
+from modules.Printer import Printer
+# from modules.Displayer import Displayer
 
 class SorterManager:
     @classmethod

@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
-from Category import CategoryManager
-from Storage import Storage
-from Task import TaskManager
-from Printer import Printer
+from modules.Category import CategoryManager
+from modules.Storage import Storage
+from modules.Task import TaskManager
+from modules.Printer import Printer
 
 
 class ProfileManagerInterface(ABC):

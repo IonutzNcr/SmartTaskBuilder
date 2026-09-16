@@ -1,7 +1,7 @@
 import json
 import os
-from ColorCli import Colors as Co
-from Printer import Printer
+from modules.ColorCli import Colors as Co
+from modules.Printer import Printer
 
 
 
